@@ -370,22 +370,22 @@ namespace Kinect.BodyStream
                 num_events++;
                 if (diff.TotalSeconds > 1)
                 {
-                    if (result.GestureName.Equals("PlayPunch"))     //Reproducir
+                    if (result.GestureName.Equals("PalmPunch_Right"))     //Reproducir
                     {
                         mediaElement.Play();
                     }
                     else
-                    if (result.GestureName.Equals("PausePunch"))    //Pausar
+                    if (result.GestureName.Equals("PalmPunch_Left"))     //Pausar
                     {
                         mediaElement.Pause();
                     }
                     else
-                    if (result.GestureName.Equals("StopPunch"))     //Stop
+                    if (result.GestureName.Equals("DoublePalm"))     //Stop
                     {
                         mediaElement.Stop();
                     }
                     else
-                    if (result.GestureName.Equals("swipeArmRight"))     //Acelerar velocidad de reproducción
+                    if (result.GestureName.Equals("SwipeHand_Right"))     //Acelerar velocidad de reproducción
                     {
                         int newmili = (int)mediaElement.Position.TotalMilliseconds + 5000;
                         if (newmili < mediaElement.NaturalDuration.TimeSpan.TotalMilliseconds)
@@ -395,7 +395,7 @@ namespace Kinect.BodyStream
                         }
                     }
                     else
-                    if (result.GestureName.Equals("swipeArmLeft"))      //Decrementar velocidad de reproducción
+                    if (result.GestureName.Equals("SwipeHand_Left"))      //Decrementar velocidad de reproducción
                     {
                         int newmili = (int)mediaElement.Position.TotalMilliseconds - 5000;
                         if (newmili > TimeSpan.Zero.TotalMilliseconds)
@@ -405,7 +405,7 @@ namespace Kinect.BodyStream
                         }                        
                     }
                     else
-                    if (result.GestureName.Equals("raiseRightArm"))     //Subir volumen, no puede ser mayor que 1
+                    if (result.GestureName.Equals("RaiseArm_Right"))     //Subir volumen, no puede ser mayor que 1
                     {
                         if (volumeSlider.Value != 1)
                         {
@@ -414,7 +414,7 @@ namespace Kinect.BodyStream
                         }
                     }
                     else
-                    if (result.GestureName.Equals("raiseLeftArm"))      //Bajar volumen, no puede ser menor que 0
+                    if (result.GestureName.Equals("RaiseArm_Left"))      //Bajar volumen, no puede ser menor que 0
                     {
                         if (volumeSlider.Value != 0)
                         {
