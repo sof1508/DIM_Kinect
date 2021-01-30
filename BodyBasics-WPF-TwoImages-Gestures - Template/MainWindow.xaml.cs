@@ -370,33 +370,51 @@ namespace Kinect.BodyStream
                 num_events++;
                 if (diff.TotalSeconds > 1)
                 {
-                    if (result.GestureName.Equals("SwipeTwoArms"))
+                    if (result.GestureName.Equals("PlayPunch"))     //Reproducir
                     {
                         mediaElement.Play();
                     }
                     else
-                    if (result.GestureName.Equals("SwipeOneArm_Left"))
+                    if (result.GestureName.Equals("PausePunch"))    //Pausar
                     {
-
+                        mediaElement.Pause();
                     }
                     else
-                    if (result.GestureName.Equals("SwipeOneArm_Right"))
+                    if (result.GestureName.Equals("StopPunch"))     //Stop
+                    {
+                        mediaElement.Stop();
+                    }
+                    else
+                    if (result.GestureName.Equals("swipeArmRight"))     //Acelerar velocidad de reproducción
                     {
                         mediaElement.SpeedRatio = (double)speedRatioSlider.Value;
                     }
                     else
-                    if (result.GestureName.Equals("raiseRightArm"))
+                    if (result.GestureName.Equals("swipeArmLeft"))      //Decrementar velocidad de reproducción
                     {
-
+                        mediaElement.SpeedRatio = (double)speedRatioSlider.Value;
                     }
                     else
-                    if (result.GestureName.Equals("raiseLeftArm")) 
+                    if (result.GestureName.Equals("raiseRightArm"))     //Subir volumen, no puede ser mayor que 1
                     {
-                        mediaElement.Volume = (double)volumeSlider.Value;
+                        if (volumeSlider.Value != 1)
+                        {
+                            volumeSlider.Value = volumeSlider.Value + 0.1;
+                            mediaElement.Volume = (double)volumeSlider.Value;
+                        }
                     }
-                }
-                
+                    else
+                    if (result.GestureName.Equals("raiseLeftArm"))      //Bajar volumen, no puede ser menor que 0
+                    {
+                        if (volumeSlider.Value != 0)
+                        {
+                            volumeSlider.Value  = volumeSlider.Value - 0.1;
+                            mediaElement.Volume = volumeSlider.Value;
 
+                        }
+                    }
+                    
+                }
 
             }
             

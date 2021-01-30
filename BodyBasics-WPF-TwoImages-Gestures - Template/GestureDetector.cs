@@ -22,7 +22,7 @@ namespace Kinect.BodyStream
 
 
         /// <summary> Path to the gesture database that was trained with VGB </summary>
-        private readonly string gestureDatabase = @"Database\DIMAGestures.gbd";               
+        private readonly string gestureDatabase = @"Database\Media.gbd";               
         
         /// <summary> Gesture frame source which should be tied to a body tracking ID </summary>
         private VisualGestureBuilderFrameSource vgbFrameSource = null;
