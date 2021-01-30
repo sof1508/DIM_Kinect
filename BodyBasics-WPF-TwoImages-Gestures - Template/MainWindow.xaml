@@ -31,8 +31,6 @@
         <StackPanel Background="Black">
             <MediaElement x:Name="mediaElement" Source = "kinect.wmv" LoadedBehavior="Manual" UnloadedBehavior="Stop" HorizontalAlignment="Left" Height="446" Margin="10,28,0,0" Grid.Row="1" VerticalAlignment="Top" Width="662"/>
         <StackPanel HorizontalAlignment="Center" Width="450" Orientation="Horizontal">
-            <TextBlock Foreground="White" Margin="5"  VerticalAlignment="Center">Speed</TextBlock>
-        <Slider Name="speedRatioSlider" VerticalAlignment="Center" Value="1" Width="70" />
                 <TextBlock Foreground="White" VerticalAlignment="Center" Margin="5"  >Volume</TextBlock>
                 <Slider Name="volumeSlider" VerticalAlignment="Center" Minimum="0" Maximum="1" Value="0.5" Width="70"/>
             </StackPanel>
