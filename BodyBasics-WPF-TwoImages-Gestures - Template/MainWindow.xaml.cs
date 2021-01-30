@@ -387,12 +387,22 @@ namespace Kinect.BodyStream
                     else
                     if (result.GestureName.Equals("swipeArmRight"))     //Acelerar velocidad de reproducción
                     {
-                        mediaElement.SpeedRatio = (double)speedRatioSlider.Value;
+                        int newmili = (int)mediaElement.Position.TotalMilliseconds + 5000;
+                        if (newmili < mediaElement.NaturalDuration.TimeSpan.TotalMilliseconds)
+                        {
+                            TimeSpan ts = new TimeSpan(0, 0, 0, 0, newmili);
+                            mediaElement.Position = ts;
+                        }
                     }
                     else
                     if (result.GestureName.Equals("swipeArmLeft"))      //Decrementar velocidad de reproducción
                     {
-                        mediaElement.SpeedRatio = (double)speedRatioSlider.Value;
+                        int newmili = (int)mediaElement.Position.TotalMilliseconds - 5000;
+                        if (newmili > TimeSpan.Zero.TotalMilliseconds)
+                        {
+                            TimeSpan ts = new TimeSpan(0, 0, 0, 0, newmili);
+                            mediaElement.Position = ts;
+                        }                        
                     }
                     else
                     if (result.GestureName.Equals("raiseRightArm"))     //Subir volumen, no puede ser mayor que 1
