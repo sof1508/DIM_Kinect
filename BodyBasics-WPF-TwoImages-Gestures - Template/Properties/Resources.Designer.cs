@@ -70,6 +70,16 @@ namespace Kinect.BodyStream.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] kinect {
+            get {
+                object obj = ResourceManager.GetObject("kinect", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a No ready Kinect found!.
         /// </summary>
         internal static string NoSensorStatusText {

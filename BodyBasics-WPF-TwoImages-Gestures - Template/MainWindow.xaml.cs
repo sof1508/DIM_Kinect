@@ -59,7 +59,7 @@ namespace Kinect.BodyStream
         {
             get
             {
-                return bodyRenderer.imageSource;
+               return bodyRenderer.imageSource;
             }
         }
 
@@ -144,7 +144,7 @@ namespace Kinect.BodyStream
             prevTime = DateTime.Now;
 
             // initialize the components (controls) of the window
-            this.InitializeComponent();
+            this.InitializeComponent();           
         }
 
         /// <summary>
@@ -265,8 +265,8 @@ namespace Kinect.BodyStream
             using (DepthFrame depthFrame =
                  e.FrameReference.AcquireFrame())
             {
-                if (isDepthShown)
-                    ShowDepthFrame(depthFrame);
+               // if (isDepthShown)
+                    //ShowDepthFrame(depthFrame);
             }
 
         }
@@ -372,37 +372,27 @@ namespace Kinect.BodyStream
                 {
                     if (result.GestureName.Equals("SwipeTwoArms"))
                     {
-                        // initialize gesture detectors and listeners
-                        /// <summary>
-                        /// Tarea a realizar por alumno
-                        /// Implementar una acción
-                        /// </summary>
-                        /// /////////////////////////////////////////////////////////////////////////////////////////////////
-      
+                        mediaElement.Play();
                     }
                     else
                     if (result.GestureName.Equals("SwipeOneArm_Left"))
                     {
-                        // initialize gesture detectors and listeners
-                        /// <summary>
-                        /// Tarea a realizar por alumno
-                        /// Implementar una acción
-                        /// </summary>
-                        /// /////////////////////////////////////////////////////////////////////////////////////////////////
-                  
-                        
+
                     }
                     else
                     if (result.GestureName.Equals("SwipeOneArm_Right"))
                     {
-                        // initialize gesture detectors and listeners
-                        /// <summary>
-                        /// Tarea a realizar por alumno
-                        /// Implementar una acción
-                        /// </summary>
-                        /// /////////////////////////////////////////////////////////////////////////////////////////////////
-  
+                        mediaElement.SpeedRatio = (double)speedRatioSlider.Value;
+                    }
+                    else
+                    if (result.GestureName.Equals("raiseRightArm"))
+                    {
 
+                    }
+                    else
+                    if (result.GestureName.Equals("raiseLeftArm")) 
+                    {
+                        mediaElement.Volume = (double)volumeSlider.Value;
                     }
                 }
                 
