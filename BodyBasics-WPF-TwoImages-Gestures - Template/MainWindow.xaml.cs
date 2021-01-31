@@ -242,8 +242,7 @@ namespace Kinect.BodyStream
 
             if (dataReceived)
             {              
-                    bodyRenderer.render(bodies);
-
+                bodyRenderer.render(bodies);
                 
                 for (int i = 0; i < bodies.Length; ++i)
                 {
@@ -253,22 +252,18 @@ namespace Kinect.BodyStream
                         this.detector.IsPaused = false;
                     }
                 }
-                
 
             }
         }
 
         private void Reader_DepthSourceFrameArrived(object sender, DepthFrameArrivedEventArgs e)
         {
-
-            
             using (DepthFrame depthFrame =
                  e.FrameReference.AcquireFrame())
             {
                // if (isDepthShown)
                     //ShowDepthFrame(depthFrame);
             }
-
         }
 
         private void ShowDepthFrame(DepthFrame depthFrame)
@@ -365,7 +360,7 @@ namespace Kinect.BodyStream
                 currTime=DateTime.Now;
                 TimeSpan diff = currTime - prevTime;
 
-                this.StatusText = result.GestureName + " " + num_events+ " Seconds: "+diff.TotalSeconds;
+                this.StatusText = result.GestureName + " " + num_events+ " Seconds: "+ diff.TotalSeconds + " // Volume: " + volumeSlider.Value;
                 prevTime = currTime;
                 num_events++;
                 if (diff.TotalSeconds > 1)
